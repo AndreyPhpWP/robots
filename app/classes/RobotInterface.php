@@ -4,17 +4,17 @@
 interface RobotInterface
 {
     /**
-     * @return mixed
+     * @return int
      */
     function getSpeed();
 
     /**
-     * @return mixed
+     * @return int
      */
     function getWeight();
 
     /**
-     * @return mixed
+     * @return int
      */
     function getHeight();
 }
