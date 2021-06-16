@@ -1,6 +1,18 @@
 <?php
-
+require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/app/autoload.php';
+
+use Symfony\Component\VarDumper\VarDumper;
+
+if (!function_exists('dd')) {
+    function dd($var)
+    {
+        foreach (func_get_args() as $var) {
+            VarDumper::dump($var);
+        }
+        exit;
+    }
+}
 
 $factory = new FactoryRobot();
 
@@ -17,6 +29,7 @@ $unionRobot->addRobot($factory->createRobot2(2));
 $factory->addType($unionRobot);
 $result = reset($factory->createUnionRobot(1));
 
+dd($result);
 //echo '<pre>';
 //var_dump($result);
 //echo '</pre>';
